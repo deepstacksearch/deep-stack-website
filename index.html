@@ -18,52 +18,57 @@
 
   <!-- HEADER -->
   <header class="bg-primary text-white py-4">
-    <div class="container d-flex justify-content-between align-items-center">
-      <div class="d-flex align-items-center gap-4">
-        <img src="assets/logo.png" alt="Deep Stack Search Advisors" height="60"/>
-        <h1 class="mb-0 fs-3 fw-bold">Deep Stack Search Advisors</h1>
-      </div>
-      <nav class="d-none d-md-flex gap-4 fs-5">
-        <a href="#" class="text-white text-decoration-none">Services</a>
-        <a href="#" class="text-white text-decoration-none">Insights</a>
-        <a href="#" class="text-white text-decoration-none">Candidates</a>
-        <a href="#" class="text-white text-decoration-none">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <div class="mt-5">
+  <!-- Client Form Modal Trigger -->
+  <button class="btn btn-cyan btn-lg px-5 py-3 me-3" data-bs-toggle="modal" data-bs-target="#clientModal">
+    Start a Search
+  </button>
+  <button class="btn btn-outline-light btn-lg px-5 py-3" data-bs-toggle="modal" data-bs-target="#candidateModal">
+    I'm a Candidate
+  </button>
+</div>
 
-  <!-- HERO -->
-  <section class="bg-dark text-white text-center py-5">
-    <div class="container py-5">
-      <h2 class="display-3 fw-bold">Precision Over Volume</h2>
-      <p class="lead mb-4 fs-4">Elite engineering leaders for blockchain, DeFi, and deep-tech companies</p>
-      <p class="fs-5 opacity-75 mb-5">CTOs • VP Engineering • Protocol Architects • ZK Researchers • Core Engineers</p>
-      <div>
-        <a href="#" class="btn btn-cyan btn-lg px-5 py-3 me-3">Start a Search</a>
-        <a href="#" class="btn btn-outline-light btn-lg px-5 py-3">I'm a Candidate</a>
+<!-- Client Modal -->
+<div class="modal fade" id="clientModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Start an Executive Search</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="client-form">
+          <input type="text" id="client-name" class="form-control mb-3" placeholder="Your Name" required>
+          <input type="email" id="client-email" class="form-control mb-3" placeholder="Email" required>
+          <input type="text" id="client-company" class="form-control mb-3" placeholder="Company">
+          <textarea id="client-message" class="form-control mb-3" rows="4" placeholder="Tell us about the role"></textarea>
+          <button type="button" onclick="submitClientLead()" class="btn btn-cyan w-100">Submit</button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- VALUES -->
-  <section class="py-5 bg-light">
-    <div class="container">
-      <div class="row text-center g-5">
-        <div class="col-md-4">
-          <h3 class="accent fw-bold">Precision Over Volume</h3>
-          <p class="lead">Every role treated with the rigor of a protocol upgrade</p>
-        </div>
-        <div class="col-md-4">
-          <h3 class="accent fw-bold">Technical Depth</h3>
-          <p class="lead">We understand engineering — not keywords</p>
-        </div>
-        <div class="col-md-4">
-          <h3 class="accent fw-bold">Founder-Aligned</h3>
-          <p class="lead">Search is strategy. Every placement shapes the future</p>
-        </div>
+<!-- Candidate Modal -->
+<div class="modal fade" id="candidateModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Apply as a Candidate</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="candidate-form">
+          <input type="text" id="cand-name" class="form-control mb-3" placeholder="Your Name" required>
+          <input type="email" id="cand-email" class="form-control mb-3" placeholder="Email" required>
+          <input type="text" id="cand-linkedin" class="form-control mb-3" placeholder="LinkedIn URL">
+          <textarea id="cand-resume" class="form-control mb-3" rows="8" placeholder="Paste your resume text here (for AI scoring)" required></textarea>
+          <button type="button" onclick="submitCandidate()" class="btn btn-cyan w-100">Submit Application</button>
+        </form>
       </div>
     </div>
-  </section>
+  </div>
+</div>
 
   <!-- FOOTER -->
   <footer class="bg-primary text-white text-center py-5">
@@ -72,6 +77,6 @@
       <p class="mb-0"><a href="https://www.linkedin.com/company/deep-stack-search-advisors" class="text-white text-decoration-none">LinkedIn</a></p>
     </div>
   </footer>
-
+  <script type="module" src="js/firebase.js"></script>
 </body>
 </html>
